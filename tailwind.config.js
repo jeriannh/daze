@@ -9,6 +9,7 @@ module.exports = {
         blue: "#006371",
         blueGrey: "#BDCDCC",
         grey: "#F5F5F5",
+        green: "#9ABAA9",
       },
       fontFamily: {
         "pn-bold": ["Proxima Nova Bold"],

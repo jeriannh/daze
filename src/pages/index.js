@@ -11,7 +11,7 @@ export default function Home() {
           Turn your daze into 7 days of inward and outward transformation
         </div>
         <Link
-          className="rounded-full bg-orange text-white font-pn-bold text-2xl px-8 py-4 mt-28"
+          className="rounded-full bg-orange text-white font-pn-bold text-2xl px-8 py-4 mt-28 hover:shadow-lg"
           to="/goal"
         >
           Start planning your week
