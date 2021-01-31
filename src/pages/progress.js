@@ -71,7 +71,7 @@ export default function Progress() {
       <div class="bg-blueGrey h-16 rounded-full">
         <div className="flex flex-row items-center justify-between hover:shadow-lg">
           <div className="text-1xl place-items-center m-5 ml-10 text-white font-pn-bold">
-            January 17-23
+            January 17 - 23
           </div>
           <div className="text-1xl place-items-center m-5 mr-10 text-white font-pn-bold">
             It's okay to not be okay.
@@ -81,7 +81,7 @@ export default function Progress() {
       <div class="bg-orange h-16 rounded-full">
         <div className="flex flex-row items-center justify-between hover:shadow-lg">
           <div className="text-1xl place-items-center m-5 ml-10 text-white font-pn-bold">
-            January 24-30
+            January 24 - 30
           </div>
           <div className="text-1xl place-items-center m-5 mr-10 text-white font-pn-bold">
             The sun is shining!
