@@ -20,8 +20,16 @@ class reflection extends Component {
 
   formSubmit(event) {
     event.preventDefault()
+    const fs = require('fs')
+    fs.writeFile('Output.txt', this.state.reflection, (err)=> {
+      if (err) throw err;
+    })
     localStorage.setItem("reflect", JSON.stringify(this.state.reflection))
-    console.log(this.state.reflection)
+    // text_file = open("progress.txt","w")
+    // text_file.write(this.state.reflection)
+    // text_file.close()
+    // console.log(this.state.reflection)
+    
     navigate("/dashboard/")
   }
 
