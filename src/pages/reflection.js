@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 import { navigate } from "gatsby"
+import { Link } from "gatsby"
+
 import logo from "../graphics/daze-logo.svg"
 
 class reflection extends Component {
@@ -20,7 +22,8 @@ class reflection extends Component {
 
   formSubmit(event) {
     event.preventDefault()
-    localStorage.setItem("reflect", JSON.stringify(this.state.reflection))
+    // localStorage.setItem("reflect", JSON.stringify(this.state.reflection))
+    
     console.log(this.state.reflection)
     navigate("/dashboard/")
   }
@@ -28,8 +31,10 @@ class reflection extends Component {
   render() {
     return (
       <div className="w-full px-48 py-6 flex flex-col">
-        <img className="mx-auto w-20" src={logo} alt="Daze" />
-        <div className="mt-20 text-6xl text-blue font-pn-bold text-center">
+                <Link to="/dashboard">
+                <img className="mx-auto w-20" src={logo} alt="Daze" />
+          </Link>
+          <div className="mt-20 text-6xl text-blue font-pn-bold text-center">
           You did it!
         </div>
         <div className="mt-20 text-2xl text-blue font-pn-bold text-left">
@@ -41,7 +46,7 @@ class reflection extends Component {
         <form onSubmit={this.formSubmit}>
           <input
             type="text"
-            className="my-5 w-full h-24 "
+            className="rounded-lg my-5 w-full h-24 "
             name="reflect"
             value={this.state.reflection}
             onChange={this.onValueChange}
