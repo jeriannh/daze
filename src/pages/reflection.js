@@ -33,7 +33,7 @@ class reflection extends Component {
                 You did it!
             </div>
             <div className="mt-20 text-2xl text-blue font-pn-bold text-left">
-                Congratulations on completing the 7 days! We believe every achievement is worth recording, write a short reflection so Daze can remind you of your progress.
+                Congratulations on completing day {JSON.parse(localStorage.getItem("day"))}! We believe every achievement is worth recording, write a short reflection so Daze can remind you of your progress.
             </div>
             <form onSubmit = {this.formSubmit}>
                 <input
