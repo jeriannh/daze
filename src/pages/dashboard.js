@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import Video from "../components/video"
 import logo from "../graphics/daze-logo.svg"
+import edit from "../graphics/edit.svg"
 
 export default function Dashboard() {
   return (
@@ -26,7 +27,12 @@ export default function Dashboard() {
       </div>
       <div className="grid grid-cols-4 gap-4">
         <div className="w-full bg-grey rounded-lg p-8 flex flex-col gap-8">
-          <div className="text-2xl font-pn-bold">Day 1</div>
+          <div className="flex flex-row items-center gap-6">
+            <div className="text-2xl font-pn-bold">Day 1</div>
+            <Link onClick={localStorage.setItem("day", "1")} to="/plan">
+              <img className="h-8" src={edit} alt="Edit" />
+            </Link>
+          </div>
           <Video
             videoSrcURL={"https://www.youtube.com/embed/CMMaEFiY-nE"}
             videoTitle={"21 Minute Cardio Burn N' Tone Workout"}

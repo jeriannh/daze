@@ -23,7 +23,7 @@ class Goals extends Component {
   formSubmit(event) {
     event.preventDefault()
     localStorage.setItem("goal", JSON.stringify(this.state.selectedOption))
-    navigate("/dashboard/")
+    navigate("/dashboard")
   }
 
   render() {
