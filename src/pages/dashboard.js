@@ -14,7 +14,7 @@ export default function Dashboard() {
             className="rounded-full bg-orange text-white font-pn-bold text-2xl px-5 py-2 hover:shadow-lg"
             to="/goals"
           >
-            stress relief
+            {JSON.parse(localStorage.getItem("goal"))}
           </Link>
         </div>
         <Link

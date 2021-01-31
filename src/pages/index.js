@@ -12,7 +12,7 @@ export default function Home() {
         </div>
         <Link
           className="rounded-full bg-orange text-white font-pn-bold text-2xl px-8 py-4 mt-28 hover:shadow-lg"
-          to="/goal"
+          to="/goals"
         >
           Start planning your week
         </Link>
