@@ -29,13 +29,13 @@ export default function Dashboard() {
         <div className="w-full bg-grey rounded-lg p-8 flex flex-col gap-8">
           <div className="flex flex-row items-center gap-6">
             <div className="text-2xl font-pn-bold">Day 1</div>
-            <Link onClick={localStorage.setItem("day", "1")} to="/plan">
+            <Link to="/plan" state={{ day: "1" }}>
               <img className="h-8" src={edit} alt="Edit" />
             </Link>
             <Link
               className="rounded-full bg-blue text-white px-5 py-2 hover:shadow-lg"
-              onClick={localStorage.setItem("day", "1")}
               to="/reflection"
+              state={{ day: "1" }}
             >
               Journal
             </Link>
@@ -56,108 +56,17 @@ export default function Dashboard() {
         <div className="w-full bg-grey rounded-lg p-8 flex flex-col gap-8">
           <div className="flex flex-row items-center gap-6">
             <div className="text-2xl font-pn-bold">Day 2</div>
-            <Link onClick={localStorage.setItem("day", "2")} to="/plan">
+            <Link to="/plan" state={{ day: "2" }}>
               <img className="h-8" src={edit} alt="Edit" />
             </Link>
             <Link
               className="rounded-full bg-blue text-white px-5 py-2 hover:shadow-lg"
-              onClick={localStorage.setItem("day", "2")}
               to="/reflection"
+              state={{ day: "2" }}
             >
               Journal
             </Link>
           </div>
-          {/* put videos here */}
-        </div>
-        <div className="w-full bg-grey rounded-lg p-8 flex flex-col gap-8">
-          <div className="flex flex-row items-center gap-6">
-            <div className="text-2xl font-pn-bold">Day 3</div>
-            <Link onClick={localStorage.setItem("day", "3")} to="/plan">
-              <img className="h-8" src={edit} alt="Edit" />
-            </Link>
-            <Link
-              className="rounded-full bg-blue text-white px-5 py-2 hover:shadow-lg"
-              onClick={localStorage.setItem("day", "3")}
-              to="/reflection"
-            >
-              Journal
-            </Link>
-          </div>
-        </div>
-        <div className="w-full bg-grey rounded-lg p-8 flex flex-col gap-8">
-          <div className="flex flex-row items-center gap-6">
-            <div className="text-2xl font-pn-bold">Day 4</div>
-            <Link onClick={localStorage.setItem("day", "4")} to="/plan">
-              <img className="h-8" src={edit} alt="Edit" />
-            </Link>
-            <Link
-              className="rounded-full bg-blue text-white px-5 py-2 hover:shadow-lg"
-              onClick={localStorage.setItem("day", "4")}
-              to="/reflection"
-            >
-              Journal
-            </Link>
-          </div>
-          {/* put here */}
-        </div>
-        <div className="w-full bg-grey rounded-lg p-8 flex flex-col gap-8">
-          <div className="flex flex-row items-center gap-6">
-            <div className="text-2xl font-pn-bold">Day 5</div>
-            <Link onClick={localStorage.setItem("day", "5")} to="/plan">
-              <img className="h-8" src={edit} alt="Edit" />
-            </Link>
-            <Link
-              className="rounded-full bg-blue text-white px-5 py-2 hover:shadow-lg"
-              onClick={localStorage.setItem("day", "5")}
-              to="/reflection"
-            >
-              Journal
-            </Link>
-          </div>
-          <Video
-            videoSrcURL={"https://www.youtube.com/embed/CMMaEFiY-nE"}
-            videoTitle={"21 Minute Cardio Burn N' Tone Workout"}
-          ></Video>
-          <Video
-            videoSrcURL={"https://www.youtube.com/embed/CMMaEFiY-nE"}
-            videoTitle={"21 Minute Cardio Burn N' Tone Workout"}
-          ></Video>
-          <Video
-            videoSrcURL={"https://www.youtube.com/embed/CMMaEFiY-nE"}
-            videoTitle={"21 Minute Cardio Burn N' Tone Workout"}
-          ></Video>
-        </div>
-        <div className="w-full bg-grey rounded-lg p-8 flex flex-col gap-8">
-          <div className="flex flex-row items-center gap-6">
-            <div className="text-2xl font-pn-bold">Day 6</div>
-            <Link onClick={localStorage.setItem("day", "6")} to="/plan">
-              <img className="h-8" src={edit} alt="Edit" />
-            </Link>
-            <Link
-              className="rounded-full bg-blue text-white px-5 py-2 hover:shadow-lg"
-              onClick={localStorage.setItem("day", "6")}
-              to="/reflection"
-            >
-              Journal
-            </Link>
-          </div>
-          {/* ahhhh */}
-        </div>
-        <div className="w-full bg-grey rounded-lg p-8 flex flex-col gap-8">
-          <div className="flex flex-row items-center gap-6">
-            <div className="text-2xl font-pn-bold">Day 7</div>
-            <Link onClick={localStorage.setItem("day", "7")} to="/plan">
-              <img className="h-8" src={edit} alt="Edit" />
-            </Link>
-            <Link
-              className="rounded-full bg-blue text-white px-5 py-2 hover:shadow-lg"
-              onClick={localStorage.setItem("day", "7")}
-              to="/reflection"
-            >
-              Journal
-            </Link>
-          </div>
-          {/* ahhhh */}
         </div>
       </div>
     </div>
