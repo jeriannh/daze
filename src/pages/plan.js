@@ -132,7 +132,7 @@ export default class Plan extends Component {
     })
 
     return (
-      <div className="w-full px-24 py-6 flex flex-col">
+      <div className="w-full px-12 py-6 flex flex-col">
         <img className="mx-auto w-20" src={logo} alt="Daze" />
         <div className="text-4xl font-pn-bold text-blue mb-12">
           Day {this.props.location.state.selectedDay}

@@ -9,7 +9,7 @@ export default function Dashboard() {
   let videoList2 = JSON.parse(localStorage.getItem("day2"))
 
   return (
-    <div className="w-full px-24 py-6 flex flex-col">
+    <div className="w-full px-12 py-6 flex flex-col">
       <img className="mx-auto w-20" src={logo} alt="Daze" />
       <div className="flex flex-row items-center justify-between mb-10">
         <div className="flex flex-row items-center gap-4">
@@ -86,7 +86,7 @@ export default function Dashboard() {
           </div>
           <p>Click on the edit icon to add videos</p>
         </div>
-        <div className="w-full bg-grey rounded-lg p-8 flex flex-col gap-8 font-pn-bold">
+        <div className="w-full bg-grey rounded-lg p-8 flex flex-col gap-8">
           <div className="flex flex-row items-center gap-6">
             <div className="text-2xl font-pn-bold">Day 4</div>
             <Link to="/plan" state={{ selectedDay: "4" }}>
