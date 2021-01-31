@@ -3,6 +3,8 @@ from google.cloud import language_v1
 import argparse
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "C:/Users/Jeriann Hsiao/Desktop/Uni Stuff/Hackathons/HackViolet/Daze-a88dd9988b90.json"
 
+# Taken from https://cloud.google.com/natural-language/docs/sentiment-tutorial
+
 
 def print_result(annotations):
     score = annotations.document_sentiment.score
