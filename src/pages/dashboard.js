@@ -23,7 +23,7 @@ export default function Dashboard() {
         </div>
         <Link
           className="rounded-full bg-green text-white font-pn-bold text-2xl px-5 py-2 hover:shadow-lg"
-          to="/progress"
+          to="/sentiment_analysis.py"
         >
           Progress
         </Link>
