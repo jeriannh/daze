@@ -1,12 +1,8 @@
 import React, { Component } from "react"
 import Checkbox from "../components/Checkbox"
-import { Link } from "gatsby"
 import { navigate } from "gatsby"
-import Video from "../components/video"
 import logo from "../graphics/daze-logo.svg"
-import stress from "../graphics/stress.svg"
-import confidence from "../graphics/confidence.svg"
-import energy from "../graphics/energy.svg"
+import blogilates from "../graphics/blogilates.jpg"
 
 export default class Plan extends Component {
   constructor() {
@@ -32,7 +28,24 @@ export default class Plan extends Component {
   }
 
   formSubmit(event) {
-    console.log(this.state.checkedItems)
+    const day = `${this.props.location.state.selectedDay}`
+    console.log({ day })
+
+    // Get the existing data
+    var existing = localStorage.getItem(`day${day}`)
+
+    // If no existing data, create an array
+    // Otherwise, convert the localStorage string to an array
+    existing = existing ? existing.split(",") : []
+
+    for (const [key, value] of this.state.checkedItems.entries()) {
+      value && existing.push(key)
+    }
+
+    // Save back to localStorage
+    localStorage.setItem(`day${day}`, JSON.stringify(existing))
+
+    navigate("/dashboard")
   }
 
   render() {
@@ -42,12 +55,16 @@ export default class Plan extends Component {
       goal === "Stress relief" &&
         (checkboxes = [
           {
-            name: "https://www.youtube.com/embed/NRWz91kQuJk",
+            name: "https://www.youtube.com/embed/TVwyEtS_7OQ",
             key: "checkBox1",
           },
           {
-            name: "https://www.youtube.com/embed/o6JN_fADpPk",
+            name: "https://www.youtube.com/embed/g_tea8ZNk5A",
             key: "checkBox2",
+          },
+          {
+            name: "https://www.youtube.com/embed/lJUIDBBqJOE",
+            key: "checkBox3",
           },
         ])
     }
@@ -55,12 +72,16 @@ export default class Plan extends Component {
       goal === "Confidence boost" &&
         (checkboxes = [
           {
-            name: "https://www.youtube.com/embed/JZyy0JfUNXQ",
+            name: "https://www.youtube.com/embed/pzj78YA1zws",
             key: "checkBox1",
           },
           {
-            name: "https://www.youtube.com/embed/I6xCb7s5CE4",
+            name: "https://www.youtube.com/embed/LzYAgCw-_B0",
             key: "checkBox2",
+          },
+          {
+            name: "https://www.youtube.com/embed/0Y8cy6qtIgg",
+            key: "checkBox4",
           },
         ])
     }
@@ -68,12 +89,16 @@ export default class Plan extends Component {
       goal === "Energy" &&
         (checkboxes = [
           {
-            name: "https://www.youtube.com/embed/eOWJsw_ARB0",
+            name: "https://www.youtube.com/embed/P8ZmbPaZ45I",
             key: "checkBox1",
           },
           {
-            name: "https://www.youtube.com/embed/aE4j3KR5m54",
+            name: "https://www.youtube.com/embed/2zQ89vkNnNg",
             key: "checkBox2",
+          },
+          {
+            name: "https://www.youtube.com/embed/9seYxs-vu9s",
+            key: "checkBox4",
           },
         ])
     }
@@ -95,6 +120,7 @@ export default class Plan extends Component {
       return (
         <span
           key={item.name}
+          className="hidden"
           onClick={() =>
             this.deleteCheckboxState(
               item.name,
@@ -108,18 +134,30 @@ export default class Plan extends Component {
     return (
       <div className="w-full px-24 py-6 flex flex-col">
         <img className="mx-auto w-20" src={logo} alt="Daze" />
-        <div className="text-4xl font-pn-bold text-blue mb-12">Day 1</div>
-        <div className="grid grid-cols-2 gap-24">
-          <div className="flex flex-col gap-4">
+        <div className="text-4xl font-pn-bold text-blue mb-12">
+          Day {this.props.location.state.selectedDay}
+        </div>
+        <div className="grid grid-cols-3 gap-24 mb-12">
+          <div className="col-span-2 w-full flex flex-col gap-4">
             {checkboxesToRender}
-            <br /> {checkboxesDeleteHandlers}
+            {checkboxesDeleteHandlers}
           </div>
-          <div className="text-4xl font-pn-bold text-green mb-12">
-            Empowered women empower women.
+          <div className="w-full rounded-lg bg-green p-12 text-2xl text-blue font-pn-bold flex flex-col items-center gap-8 checked:shadow-lg">
+            <div className="text-4xl font-pn-bold text-white">
+              Empowered women empower women.
+            </div>
+            <img className="rounded-lg" src={blogilates} alt="Blogilates"></img>
+            <div className="font-sans text-white">
+              Join Cassey Ho of Blogilates in an exclusive Daze fitness class
+              that is all about feeling confident in your own skin.
+            </div>
+            <button className="rounded-full bg-white text-green font-pn-bold text-2xl px-5 py-2 hover:shadow-lg">
+              Register now
+            </button>
           </div>
         </div>
         <button
-          className="rounded-full w-min mx-auto bg-orange text-white font-pn-bold text-2xl px-5 py-2 hover:shadow-lg"
+          className="rounded-full w-min mx-auto bg-orange text-white font-pn-bold text-4xl px-6 py-2 hover:shadow-lg"
           onClick={this.formSubmit}
         >
           Save
@@ -128,58 +166,3 @@ export default class Plan extends Component {
     )
   }
 }
-
-/* export default function Plan({ location }) {
-  const goal = JSON.parse(localStorage.getItem("goal"))
-
-  return (
-    <div className="w-full px-24 py-6 flex flex-col">
-      <img className="mx-auto w-20" src={logo} alt="Daze" />
-      <div className="text-4xl font-pn-bold text-blue mb-12">
-        Day {location.state.day}
-      </div>
-      <div className="flex flex-row justify-between">
-        <div className="flex flex-col gap-8">
-          {goal === "Stress relief" && (
-            <>
-              <Video
-                videoSrcURL={"https://www.youtube.com/embed/NRWz91kQuJk"}
-                videoTitle={"Stretches You Need After a Stressful Day"}
-              ></Video>
-              <Video
-                videoSrcURL={"https://www.youtube.com/embed/o6JN_fADpPk"}
-                videoTitle={"Wake Up With Me Workout - Best Morning Workout"}
-              ></Video>
-            </>
-          )}
-          {goal === "Confidence boost" && (
-            <>
-              <Video
-                videoSrcURL={"https://www.youtube.com/embed/JZyy0JfUNXQ"}
-                videoTitle={"5 Ways to Build your Core & Confidence Workout"}
-              ></Video>
-              <Video
-                videoSrcURL={"https://www.youtube.com/embed/I6xCb7s5CE4"}
-                videoTitle={"Beautiful Body Pilates | Total Body Workout"}
-              ></Video>
-            </>
-          )}
-          {goal === "Energy" && (
-            <>
-              <Video
-                videoSrcURL={"https://www.youtube.com/embed/eOWJsw_ARB0"}
-                videoTitle={"10 Perfect Morning Stretches to Increase Energy"}
-              ></Video>
-              <Video
-                videoSrcURL={"https://www.youtube.com/embed/aE4j3KR5m54"}
-                videoTitle={"POP Pilates Top Hits"}
-              ></Video>
-            </>
-          )}
-        </div>
-      </div>
-    </div>
-  )
-  // }
-}
- */

@@ -1,8 +1,13 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Link } from "gatsby"
 import logo from "../graphics/daze-logo.svg"
 
 export default function Home() {
+  useEffect(() => {
+    localStorage.setItem("day1", JSON.stringify([]))
+    localStorage.setItem("day2", JSON.stringify([]))
+  }, [])
+
   return (
     <div className="h-screen flex items-center">
       <div className="w-full flex flex-col items-center gap-12">
