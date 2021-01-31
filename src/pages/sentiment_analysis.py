@@ -1,12 +1,11 @@
 import os
 from google.cloud import language_v1
 import argparse
-from flask import Flask, render_template
-app = Flask(__name__)
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "C:/Users/Jeriann Hsiao/Desktop/Uni Stuff/Hackathons/HackViolet/Daze-a88dd9988b90.json"
 
+# Taken from https://cloud.google.com/natural-language/docs/sentiment-tutorial
 
-@app.route('/progress')
+
 def print_result(annotations):
     score = annotations.document_sentiment.score
     magnitude = annotations.document_sentiment.magnitude
@@ -42,7 +41,6 @@ def analyze(movie_review_filename):
 
 
 if __name__ == "__main__":
-    app.run()
     parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
     )
