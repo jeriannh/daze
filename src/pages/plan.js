@@ -56,7 +56,6 @@ export default function Plan() {
             </>
           )}
         </div>
-        <div>Empowered women empower women.</div>
       </div>
     </div>
   )
