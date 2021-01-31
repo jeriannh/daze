@@ -23,25 +23,25 @@ class reflection extends Component {
   formSubmit(event) {
     event.preventDefault()
     // localStorage.setItem("reflect", JSON.stringify(this.state.reflection))
-    
+
     console.log(this.state.reflection)
-    navigate("/dashboard/")
+    navigate("/dashboard")
   }
 
   render() {
     return (
       <div className="w-full px-48 py-6 flex flex-col">
-                <Link to="/dashboard">
-                <img className="mx-auto w-20" src={logo} alt="Daze" />
-          </Link>
-          <div className="mt-20 text-6xl text-blue font-pn-bold text-center">
+        <Link to="/dashboard">
+          <img className="mx-auto w-20" src={logo} alt="Daze" />
+        </Link>
+        <div className="mt-20 text-6xl text-blue font-pn-bold text-center">
           You did it!
         </div>
         <div className="mt-20 text-2xl text-blue font-pn-bold text-left">
           Congratulations on completing day{" "}
-          {JSON.parse(localStorage.getItem("day"))}! We believe every
-          achievement is worth recording, write a short reflection so Daze can
-          remind you of your progress.
+          {this.props.location.state.selectedDay}! We believe every achievement
+          is worth recording, write a short reflection so Daze can remind you of
+          your progress.
         </div>
         <form onSubmit={this.formSubmit}>
           <input
