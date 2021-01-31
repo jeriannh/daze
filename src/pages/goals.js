@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { navigate } from "gatsby"
 import stress from "../graphics/stress.svg"
 import confidence from "../graphics/confidence.svg"
 import energy from "../graphics/energy.svg"
@@ -21,11 +22,11 @@ class Goals extends Component {
 
   formSubmit(event) {
     event.preventDefault()
-    alert(this.state.selectedOption)
+    localStorage.setItem("goal", JSON.stringify(this.state.selectedOption))
+    navigate("/dashboard/")
   }
 
   render() {
-    console.log(this.state.selectedOption)
     return (
       <div className="h-screen flex items-center">
         <div className="w-full flex flex-col items-center gap-12">
